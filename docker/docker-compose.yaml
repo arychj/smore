@@ -5,6 +5,6 @@ services:
     container_name: smor
     restart: always
     volumes:
-      - ../src:/var/www/html
+      - ../smore:/var/www/html
     ports:
       - '8080:80'
