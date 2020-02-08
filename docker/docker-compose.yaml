@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  www:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: arychj/smor
+    container_name: smor
+    restart: always
+    volumes:
+      - ../src:/var/www/html
+    ports:
+      - '8080:80'
