@@ -10,6 +10,8 @@ RUN apt-get update && \
     a2ensite default-ssl.conf && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN echo "\nServerName localhost\n" >> /etc/apache2/apache2.conf
+
 ADD ./scripts /usr/local/sbin
 
 WORKDIR /var/www
