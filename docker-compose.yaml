@@ -20,20 +20,23 @@ services:
       context: ./docker
       args:
         - WEB_PHP_VERSION
-        - WEB_ENTRYPOINT
     image: smore/web
+    environment:
+      - WEB_ENTRYPOINT
+      - WEB_HTTPS_PORT
     networks:
       - smore
     ports:
       - '${WEB_HTTP_PORT:-80}:80'
       - '${WEB_HTTPS_PORT:-443}:443'
     volumes:
-      - ./docker/conf/vhost.conf:/etc/apache2/sites-available/default-ssl.conf
+      - ./docker/conf/vhost.conf:/etc/apache2/sites-available/000-default.conf
+      - ./docker/conf/vhost-ssl.conf:/etc/apache2/sites-available/default-ssl.conf
       - ./docker/logs/apache:/var/log/apache2
       - ./docker/logs/symfony:/var/www/var/log
       - ./docker/scripts:/scripts
       - ./smore:/var/www
-      - symfony-cache:/var/www/var/cache:rw
+      - symfony-cache:/var/www/var/cache
     depends_on:
       - database
 
