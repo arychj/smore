@@ -1,0 +1,44 @@
+version: '3.4'
+services:
+  ### database ###
+  database:
+    container_name: smore-database
+    image: postgres:${POSTGRES_VERSION}
+    environment:
+      - POSTGRES_PASSWORD
+    networks:
+      - smore
+    ports: 
+      - '${POSTGRES_PORT}:5432'
+    volumes:
+      - smore-data:/var/lib/postgresql/data
+
+  ### application ###
+  web:
+    container_name: smore-web
+    build:
+      context: ./docker
+      args:
+        - WEB_PHP_VERSION
+        - WEB_ENTRYPOINT
+    image: smore/web
+    networks:
+      - smore
+    ports:
+      - '${WEB_HTTP_PORT:-80}:80'
+      - '${WEB_HTTPS_PORT:-443}:443'
+    volumes:
+      - ./docker/conf/vhost.conf:/etc/apache2/sites-available/default-ssl.conf
+      - ./docker/logs/apache:/var/log/apache2
+      - ./docker/scripts:/scripts
+      - ./smore:/var/www
+    depends_on:
+      - database
+
+networks:
+  smore:
+    driver: bridge
+
+volumes:
+  smore-data:
+    driver: local
