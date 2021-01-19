@@ -30,6 +30,7 @@ services:
     volumes:
       - ./docker/conf/vhost.conf:/etc/apache2/sites-available/default-ssl.conf
       - ./docker/logs/apache:/var/log/apache2
+      - ./docker/logs/symfony:/var/www/var/log
       - ./docker/scripts:/scripts
       - ./smore:/var/www
     depends_on:
