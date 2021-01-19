@@ -11,7 +11,7 @@ services:
     ports: 
       - '${POSTGRES_PORT}:5432'
     volumes:
-      - smore-data:/var/lib/postgresql/data
+      - database:/var/lib/postgresql/data
 
   ### application ###
   web:
@@ -33,6 +33,7 @@ services:
       - ./docker/logs/symfony:/var/www/var/log
       - ./docker/scripts:/scripts
       - ./smore:/var/www
+      - symfony-cache:/var/www/var/cache:rw
     depends_on:
       - database
 
@@ -41,5 +42,7 @@ networks:
     driver: bridge
 
 volumes:
-  smore-data:
+  database:
+    driver: local
+  symfony-cache:
     driver: local
