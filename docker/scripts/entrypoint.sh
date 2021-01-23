@@ -7,6 +7,8 @@ OWD=`pwd`
 # update composer dependencies
 cd $APP_DIR
 composer install
+npm install
+npm run watch
 
 DIRS=( \
     "${APP_DIR}/var/cache" \

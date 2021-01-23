@@ -4,7 +4,10 @@ FROM php:${WEB_PHP_VERSION}-apache
 ARG WEB_ENTRYPOINT
 
 RUN apt-get update && \
-    apt-get install -y ssl-cert && \
+    apt-get install -y \
+        ssl-cert \
+        nodejs \
+        npm && \
     a2enmod ssl \
             rewrite && \
     a2ensite default-ssl.conf && \
