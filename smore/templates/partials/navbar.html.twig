@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<div class="navbar-fixed" data-controller="navbar">
     <ul id="navbar-user-dropdown" class="dropdown-content">
         <li><a href="{{ path('samples_mine') }}">My Samples</a></li>
         <li><a href="{{ path('user_profile') }}">Profile</a></li>
@@ -25,17 +25,17 @@
             <a href="#" class="brand-logo">Logo</a>
             <a href="#" data-target="sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-            {% if app.user %}
-                <li><a href=""><i class="material-icons">search</i></a></li>
-                <li><a href="{{ path('samples') }}"><i class="material-icons">view_module</i></a></li>
-                <li>
-                    <a class="dropdown-trigger" href="#!" data-target="navbar-user-dropdown">
-                        {{ app.user.name }}<i class="material-icons right">arrow_drop_down</i>
-                    </a>
-                </li>
-            {% else %}
-                <li><a href="{{ path('login') }}">Login</a></li>
-            {% endif %}
+                {% if app.user %}
+                    <li><a href=""><i class="material-icons">search</i></a></li>
+                    <li><a href="{{ path('samples') }}"><i class="material-icons">view_module</i></a></li>
+                    <li>
+                        <a class="dropdown-trigger" href="#!" data-target="navbar-user-dropdown">
+                            {{ app.user.name }}<i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li><a href="{{ path('login') }}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
