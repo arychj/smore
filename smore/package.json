@@ -16,6 +16,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "material-icons": "^0.5.2",
         "materialize-css": "^1.0.0"
     }
 }
