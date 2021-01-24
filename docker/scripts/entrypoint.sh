@@ -7,8 +7,9 @@ OWD=`pwd`
 # update composer dependencies
 cd $APP_DIR
 composer install
+php bin/console doctrine:schema:update --force
 npm install
-npm run watch
+npm run dev
 
 DIRS=( \
     "${APP_DIR}/var/cache" \

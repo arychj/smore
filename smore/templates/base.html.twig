@@ -2,12 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>SMORE - {% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}{% endblock %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
+        <ul id="navbar-user-dropdown" class="dropdown-content">
+            <li><a href="#!">My Samples</a></li>
+            <li><a href="#!">Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('logout') }}">Logout</a></li>
+        </ul>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
@@ -16,6 +23,15 @@
                         <li><a href="sass.html">Sass</a></li>
                         <li><a href="badges.html">Components</a></li>
                         <li><a href="collapsible.html">JavaScript</a></li>
+                        {% if app.user %}
+                            <li>
+                                <a class="dropdown-trigger" href="#!" data-target="navbar-user-dropdown">
+                                    {{ app.user.name }}<i class="material-icons right">arrow_drop_down</i>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li><a href="{{ path('login') }}">Login</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>
