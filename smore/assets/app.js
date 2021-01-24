@@ -11,7 +11,7 @@ import './styles/app.css';
 import '../node_modules/material-icons/iconfont/material-icons.css'
 import '../node_modules/materialize-css/dist/css/materialize.min.css'
 
-import '../node_modules/materialize-css/dist/js/materialize.min'
+import '../node_modules/materialize-css/dist/js/materialize.min.js'
 
 // start the Stimulus application
 import './bootstrap';
