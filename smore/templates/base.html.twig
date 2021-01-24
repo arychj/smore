@@ -8,31 +8,8 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <ul id="navbar-user-dropdown" class="dropdown-content">
-            <li><a href="#!">My Samples</a></li>
-            <li><a href="#!">Profile</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ path('logout') }}">Logout</a></li>
-        </ul>
-        <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Logo</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="">Samples</a></li>
-                        {% if app.user %}
-                            <li>
-                                <a class="dropdown-trigger" href="#!" data-target="navbar-user-dropdown">
-                                    {{ app.user.name }}<i class="material-icons right">arrow_drop_down</i>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li><a href="{{ path('login') }}">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        {% include 'partials/navbar.html.twig' with { 'app': app } %}
+
         <div class="container">
             {% block body %}{% endblock %}
         </div>
