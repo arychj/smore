@@ -11,6 +11,11 @@
         {% include 'partials/navbar.html.twig' with { 'app': app } %}
 
         <div class="container">
+            {% include 'partials/flash/handler.twig' with {
+                'flashes': app.flashes,
+                'error': (error is defined ? error : null)
+            } %}
+
             {% block body %}{% endblock %}
         </div>
 

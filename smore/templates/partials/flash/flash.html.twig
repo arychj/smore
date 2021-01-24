@@ -1,0 +1,11 @@
+{% set levels = {
+    'warning': 'amber darken-2 white-text',
+    'error': 'red darken-1 white-text',
+    'default': 'teal lighten-2'
+} %}
+
+<div class="card z-depth-5 {{ (level in levels|keys) ? levels[level] : levels['default'] }}">
+    <div class="card-content">
+        {{ message }}
+    </div>
+</div>
