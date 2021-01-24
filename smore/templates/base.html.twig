@@ -19,6 +19,10 @@
             {% block body %}{% endblock %}
         </div>
 
+        {% if app.user %}
+            {% include 'search/globalModal.html.twig' %}
+        {% endif %}
+
         {{ encore_entry_script_tags('app') }}
         {% block javascript %}{% endblock %}
 

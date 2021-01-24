@@ -26,7 +26,7 @@
             <a href="#" data-target="sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {% if app.user %}
-                    <li><a href=""><i class="material-icons">search</i></a></li>
+                    <li><a href="#globalSearchModal" class="waves-effect waves-light modal-trigger"><i class="material-icons">search</i></a></li>
                     <li><a href="{{ path('samples') }}"><i class="material-icons">view_module</i></a></li>
                     <li>
                         <a class="dropdown-trigger" href="#!" data-target="navbar-user-dropdown">

@@ -11,10 +11,8 @@ import './styles/app.css';
 import '../node_modules/material-icons/iconfont/material-icons.css'
 import '../node_modules/materialize-css/dist/css/materialize.min.css'
 
-import '../node_modules/jquery/dist/jquery.min.js'
-import '../node_modules/materialize-css/dist/js/materialize.min.js'
+import '../node_modules/jquery/dist/jquery.min'
+import '../node_modules/materialize-css/dist/js/materialize.min'
 
 // start the Stimulus application
 import './bootstrap';
-
-M.AutoInit();
