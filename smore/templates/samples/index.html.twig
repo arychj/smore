@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Samples{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col s6">
+            {% include 'samples/partials/edit.html.twig' %}
+        </div>
+        <div class="col s6">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">access_time</i>Recent<span class="badge">1</span></div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
+                            <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
+                            <a href="#!" class="collection-item">Alan</a>
+                            <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">favorite_border</i>Favourites</div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">person_outline</i>Mine</div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+{% endblock %}

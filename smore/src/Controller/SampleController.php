@@ -16,7 +16,7 @@ class SampleController extends AbstractController {
     public function samples() : Response {
         $number = random_int(0, 100);
 
-        return $this->render('number.html.twig', [
+        return $this->render('samples/index.html.twig', [
             'number' => $number,
         ]);
     }
@@ -25,10 +25,13 @@ class SampleController extends AbstractController {
      * @Route("/mine", name="samples_mine")
      */
     public function mine() : Response {
-        $number = random_int(0, 100);
+        return $this->render('samples/mine.html.twig');
+    }
 
-        return $this->render('number.html.twig', [
-            'number' => $number,
-        ]);
+    /**
+     * @Route("/favourites", name="samples_favourites")
+     */
+    public function favourites() : Response {
+        return $this->render('samples/favourites.html.twig');
     }
 }

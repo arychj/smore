@@ -14,8 +14,8 @@ body {
 }
 
 #globalSearchModal input[type=text]:focus {
-    border-bottom: 1px solid #b2dfdb;
-    box-shadow: 0 1px 0 0 #b2dfdb;
+    border-bottom: 1px solid #c8e6c9;
+    box-shadow: 0 1px 0 0 #c8e6c9;
 }
 
 #globalSearchModal label {
